@@ -1,0 +1,381 @@
+/* ==========================================================================
+DEPENDENCIES
+    --------------------------------------------------------------------------
+    _color.scss
+    _mixin.scss
+    _common.scss
+
+    TABLE OF CONTENT
+    --------------------------------------------------------------------------
+    01 Global
+    02 Layout
+    03 Header
+    04 Main Navigation
+    05 Home Page
+    06 Standard
+    07 Footer
+    08 Components
+
+00 Imports
+================================================== */
+
+@import 'common/mixin';
+@import 'common/color';
+@import 'common/defaults';
+@import 'common/fonts';
+
+
+/* =======================================================================
+01 Global
+========================================================================== */
+$default-font-size: 1.6em;
+
+*, *:before, *:after { box-sizing: inherit; }
+html { box-sizing: border-box; }
+body {
+    font: 62.5%/1.5 'Roboto', sans-serif;
+    margin: 0 !important;
+}
+/**
+ * Headings
+ */
+
+h1, h2, h3, h4, h5, h6,
+address {
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+h1 { font-size: 3em; }
+h2 { font-size: 2.65em; }
+h3 { font-size: 2.3em; }
+h4 { font-size: 2em; }
+h5 {
+    font-size: 1.8em;
+    font-style: italic;
+}
+
+h6 {
+    font-size: 1.6em;
+    font-style: italic;
+}
+
+ol, ul {
+    margin: auto;
+    padding: inherit;
+}
+
+dl { font-size: $default-font-size; }
+
+menu, ol, ul {
+    margin-bottom: 20px;
+    padding: 0 0 0 40px;
+
+    li {
+        font-size: $default-font-size;
+
+        ul {
+            li { font-size: inherit; }
+        }
+
+        a { font-size: inherit; }
+    }
+}
+
+table {
+    border: 1px solid $grey;
+    margin-bottom: 20px;
+    width: 100%;
+
+    tr:nth-child(even) { background: lighten( $grey, 25%); }
+
+    th, td {
+        padding: 5px 10px;
+
+        a { font-size: inherit; }
+    }
+
+    th {
+        background: darken( $grey, 10% );
+        color: $white;
+        font-size: 1.8em;
+        text-align: left;
+    }
+
+    td { font-size: 1.3em; }
+}
+
+cite, p {
+    a { font-size: inherit; }
+}
+
+img { margin-bottom: 15px; }
+
+p {
+    font-size: $default-font-size;
+    margin: 0 0 1em;
+}
+
+a {
+    @include transition( all, 0.2s, ease-in-out );
+
+    font-size: $default-font-size;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+button {
+    &:focus { outline: 0; }
+}
+
+img {
+    display: block;
+    height: auto;
+    margin: 0 auto 10px;
+    max-width: 100%;
+    width: 100%;
+}
+
+[class^="col-"], [class*=" col-"] {
+    /* B: For presentation purposes only */
+    background: lighten( $grey, 25% );
+    border: 1px solid $grey;
+    font-size: 1em;
+    padding: 10px;
+    text-align: center;
+    /* E: For presentation purposes only */
+
+    width: 100%;
+
+    div { font-size: inherit; }
+}
+
+.nested-grid {
+    @extend %clearfix;
+
+    margin: 0 -10px;
+}
+
+.intro {
+    font-weight: bold;
+
+    p { font-size: 1.6em; }
+}
+
+.hide, .desktop-only, .tablet-only { display: none !important; }
+.mobile-only { display: block !important; }
+.pull-left {
+    float: left;
+    margin-right: 15px;
+}
+.pull-right {
+    float: right;
+    margin-left: 15px;
+}
+.no-border { border-bottom: 0 !important; border-top: 0 !important; }
+
+.vh {
+    border: 0;
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 0;
+}
+
+.img-responsive {
+    display: block;
+    height: auto;
+    margin: auto;
+    max-width: 100%;
+    width: 100%;
+}
+
+
+::-ms-clear { height: 22px; width: 22px; }
+::-webkit-input-placeholder,
+ :-moz-placeholder,
+::-moz-placeholder,
+ :-ms-input-placeholder { color: #a9a9a9; }
+
+%clearfix { @include clearfix(); }
+%container {
+    @extend .clearfix;
+
+    height: 100%;
+    margin: auto;
+    padding: 20px 20px;
+    position: relative;
+    max-width: 960px;
+}
+
+/* =======================================================================
+02 Layout
+========================================================================== */
+.backstretch {
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.breadcrumbs {
+    margin-bottom: 20px;
+    padding: 0 !important;
+
+    li {
+        display: inline-block;
+        font-size: 1em;
+
+        a {
+            font-size: 1.4em !important;
+            text-decoration: none;
+
+            &:hover { text-decoration: underline; }
+        }
+
+        &:after {
+            content: ">";
+            font-size: inherit;
+            margin: 0 10px;
+        }
+
+        &.last {
+            color: $red;
+            font-size: 1.4em;
+            font-weight: bold;
+
+            &:after { content: ""; }
+        }
+    }
+}
+
+.btn-print {
+    display: block;
+    font-size: $default-font-size;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.table {
+    border: 1px solid $grey;
+    font-size: 1em !important;
+    margin: 20px 0;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    &.no-scrollbar {
+        border: 0;
+        overflow-x: visible;
+        overflow-y: visible;
+    }
+
+    table { margin-bottom: 0; }
+}
+
+
+/* =======================================================================
+03 Header
+========================================================================== */
+
+
+
+/* =======================================================================
+04 Main Navigation
+========================================================================== */
+#primary-nav {
+    @extend %clearfix;
+
+    background: $blue;
+
+    & > .nav {
+        @extend %container;
+
+        padding: 0 20px !important;
+    }
+
+    h1 {
+        font-size: 1.4em;
+        float: left;
+        padding: 5px 0;
+
+        a { color: $white; }
+    }
+
+    ul {
+        @extend %clearfix;
+
+        float: right;
+        margin-bottom: 0;
+        padding: 0;
+
+        a {
+            font-size: 1em;
+
+            color: $white;
+            display: block;
+            margin-bottom: 0;
+            padding: 10px;
+
+            &.active { background: $red; }
+        }
+
+        li { float: left; }
+    }
+
+    img { @extend .img-responsive; }
+
+    .wrap {
+        float: left;
+        height: 40px;
+    }
+}
+
+
+/* =======================================================================
+05 Homepage
+========================================================================== */
+
+
+
+
+/* =======================================================================
+06 Standard
+========================================================================== */
+.container-fluid {
+    @extend %container;
+}
+
+
+/* =======================================================================
+07 Footer
+========================================================================== */
+
+
+
+/* =======================================================================
+08 Components
+========================================================================== */
+.btn {
+    background: none;
+    border: 0;
+    height: 60px;
+    width: 60px;
+
+    // B:Comment out before development
+    // background: #fff;
+    // border: 1px solid #BDBDBD;
+    // display: block;
+    // margin: auto;
+    // E:Comment out before development
+
+    &:focus { outline: 0; }
+}
+
+.icon-magnify {
+    svg { @include scale(0.75); }
+    path {
+        &:nth-child(2),
+        &:nth-child(3) { opacity: 0; }
+    }
+}

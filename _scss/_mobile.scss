@@ -1,0 +1,236 @@
+/* ==========================================================================
+DEPENDENCIES
+	--------------------------------------------------------------------------
+	_color.scss
+	_mixin.scss
+	_common.scss
+
+
+	TABLE OF CONTENT
+	--------------------------------------------------------------------------
+	01 Global
+	02 Layout
+	03 Header
+	04 Main Navigation
+	05 Home Page
+	06 Standard
+	07 Footer
+	08 Components
+
+	00 Imports
+================================================== */
+
+@import 'common/mixin';
+@import 'common/color';
+
+
+/* =======================================================================
+01 Global
+========================================================================== */
+
+
+
+/* =======================================================================
+02 Layout
+========================================================================== */
+
+
+
+/* =======================================================================
+03 Header
+========================================================================== */
+
+
+
+/* =======================================================================
+04 Main Navigation
+========================================================================== */
+#primary-nav {
+    @include transition( height, 0.2s, ease-in-out );
+
+    height: 45px;
+    position: relative;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+
+    &.active { height: 100%; }
+
+    & > .nav { padding: 0 !important; }
+
+    h1 { margin-left: 20px; }
+
+    ul {
+        overflow: hidden;
+
+        & > li {
+            opacity: 0;
+            top: -20px;
+        }
+    }
+
+    .container { padding: 0 !important; }
+
+    .wrap {
+        @include box-shadow(0, 2px, 5px, 0, rgba(0, 0, 0, 0.26));
+
+        background: $blue;
+        height: 45px;
+        left: 0;
+        padding: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .menu {
+        background: none;
+        border: 0;
+        float: right;
+        height: 45px;
+        padding: 8px;
+        width: 45px;
+
+        .line {
+            @include transition( all, 0.2s, ease-in-out );
+
+            background: $white;
+            display: block;
+            height: 2px;
+            margin: 2px auto;
+            position: relative;
+            top: 0;
+            width: 15px;
+        }
+    }
+
+    .lvl1 {
+        clear: both;
+        float: none;
+        display: none;
+        list-style: none;
+        margin: 45px 0 0 !important;
+        padding: 0;
+        position: relative;
+
+        li {
+            border-top: 1px solid $blue;
+            float: none;
+            overflow: hidden;
+            position: relative;
+        }
+
+        a {
+            padding: 12px 20px;
+
+            &.active { background: $red; }
+        }
+    }
+
+    .container {
+        float: none;
+        padding: 45px 10px 0;
+    }
+
+    .sub-nav {
+        @include absolute-center();
+
+        background: none;
+        border: 0;
+        bottom: auto;
+        color: $white;
+        display: block;
+        left: auto;
+        right: 0;
+        padding: 24px;
+    }
+
+    .icon-arrow {
+        &:before,
+        &:after {
+            @include transition( all, 0.2s, ease-in-out );
+
+            background: $white;
+            content: "";
+            display: block;
+            height: 8px;
+            position: absolute;
+            margin: auto;
+            top: 24px;
+            width: 2px;
+        }
+
+        &:before {
+            @include rotate(-45deg, 1px 0px);
+
+            left: 21px;
+        }
+
+        &:after {
+            @include rotate(45deg, 1px 0px);
+
+            right: 21px;
+        }
+
+        &.active {
+            &:before {
+            	@include rotate(-135deg, 1px 0px);
+            }
+            &:after {
+            	@include rotate(135deg, 1px 0px);
+            }
+        }
+    }
+
+    .lvl2,
+    .lvl3 {
+        display: none;
+        float: none;
+        margin: 0;
+
+        a { border-bottom: 0; }
+    }
+
+    .lvl2 {
+        background: darken( $blue, 10%);
+
+        li { border-top: 1px solid darken( $blue, 20%); }
+
+        a { padding: 12px 20px 12px 40px; }
+    }
+
+    .lvl3 {
+        background: darken( $blue, 20%);
+
+        li { border-top: 1px solid darken( $blue, 30%); }
+
+        a { padding: 12px 20px 12px 60px; }
+    }
+}
+
+
+/* =======================================================================
+05 Homepage
+========================================================================== */
+
+
+
+/* =======================================================================
+06 Standard
+========================================================================== */
+
+
+
+/* =======================================================================
+07 Footer
+========================================================================== */
+
+
+
+/* =======================================================================
+08 Components
+========================================================================== */
+
+
+
